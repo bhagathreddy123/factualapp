@@ -1,0 +1,35 @@
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 1000px; height: 720px;'>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var handler = Gmaps.build('Google');
+  var mapOptions = {Zoom: 4,  center: { lat: 37.6, lng: -95.665},
+ mapTypeId: google.maps.MapTypeId.MAP};
+
+  handler.buildMap({provider: mapOptions, internal: {id: 'map'}}, function() {
+    // I assume this is the way you retrieve the amrkers array
+    var json_data = <%=raw @hash.to_json %>;
+    var markers = handler.addMarkers(json_data);
+
+    _.each(json_data, function(json, index) {
+      var marker = markers[index];
+      json.marker = marker;
+      
+      google.maps.event.addListener(marker.getServiceObject(), 'click', function() {
+     
+       handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    });
+  });
+
+</script>
+
+
+
+

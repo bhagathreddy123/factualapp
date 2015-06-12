@@ -1,0 +1,24 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: factualapp_development
+
+
+test:
+  <<: *default
+  database: factualapp_test
+
+
+production:
+  <<: *default
+  database: factualapp_production
+  username: factualapp
+  password: <%= ENV['FACTUALAPP_DATABASE_PASSWORD'] %>

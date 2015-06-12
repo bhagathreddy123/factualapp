@@ -1,0 +1,40 @@
+<h1>Locations</h1>
+<table class="table table-stripped">
+<tr>
+<th>Name</th>
+<th>address</th>
+<th>Locality</th>
+<th>Region</th>
+<th>PostCode</th>
+<th>neighborhood</th>
+<th>Country</th>
+<th>telephone</th>
+<th>website</th>
+<th>hours_of_oper</th>
+<th>chain_name</th>
+<th>category_labels</th>
+<th>Actions</th>
+</tr>
+<%@locations.each do |location| %>
+<tr>
+<td><%=location.name %></td>
+<td><%= location. address%></td>
+<td><%= location.locality%></td>
+<td><%= location.region%></td>
+<td><%= location.post_code%></td>
+<td><%= location.neighborhood %></td>
+<td><%= location.country %></td>
+<td><%= location.telephone %></td>
+<td><%=location. website %></td>
+<td><%= location.hours_of_oper %></td>
+<td><%= location.chain_name %></td>
+<td><%=location.category_labels %></td>
+<td><%= link_to "Show",location_path(location) , :class => "btn btn-info"%>|
+<%= link_to "Edit",edit_location_path(location), :class => "btn btn-warning" %>
+|<%= link_to "Delete",location_path(location),:method => :delete, 
+:data => {:confirm => "are you sure?"}, :class => "btn btn-danger" %></td>
+</tr>
+<%end%>
+
+</table>
+<%= link_to "New",new_location_path, :class => "btn btn-default"%>|

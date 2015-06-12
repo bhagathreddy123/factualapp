@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Address</Data></Cell>
+        <Cell><Data ss:Type="String">category labels</Data></Cell>
+        <Cell><Data ss:Type="String">country</Data></Cell>
+        <Cell><Data ss:Type="String">lat</Data></Cell>
+        <Cell><Data ss:Type="String">lon</Data></Cell>
+        <Cell><Data ss:Type="String">name</Data></Cell>
+        <Cell><Data ss:Type="String">postcode</Data></Cell>
+        <Cell><Data ss:Type="String">region</Data></Cell>
+        <Cell><Data ss:Type="String">Tel</Data></Cell>
+        <Cell><Data ss:Type="String">website</Data></Cell>
+        <Cell><Data ss:Type="String">Locality</Data></Cell>
+      </Row>
+      <% @results.each do |result| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= result['address'] %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= result['category_labels']%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= result['country']  %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= result['latitude']  %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= result['longitude']  %></Data></Cell>
+        <Cell><Data ss:Type="string"><%= result['name']%> </Data></Cell>
+        <Cell><Data ss:Type="string"><%= result['postcode'] %></Data></Cell>
+        <Cell><Data ss:Type="string"><%=result['region'] %></Data></Cell>
+        <Cell><Data ss:Type="string"><%=result['tel'] %></Data></Cell>
+        <Cell><Data ss:Type="string"><%=result['website'] %></Data></Cell>
+        <Cell><Data ss:Type="string"><%=result['locality'] %></Data></Cell>
+      </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+

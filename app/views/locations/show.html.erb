@@ -1,0 +1,33 @@
+<h2>Name</h2>
+<%=@location.name %>
+<h2>caddress</h2>
+<%= @location. address%>
+<h2>cLocality</h2>
+<%= @location.locality%>
+<h2>cRegion</h2>
+<%= @location.region%>
+<h2>cPostCode</h2>
+<%= @location.post_code%>
+<h2>cneighborhood</h2>
+<%= @location.neighborhood %>
+<h2>cCountry</h2>
+<%= @location.country %>
+<h2>ctelephone</h2>
+<%= @location.telephone %>
+<h2>cwebsite</h2>
+<%=@location. website %>
+<h2>chours_of_oper</h2>
+<%= @location.hours_of_oper %>
+c<h2>chain_name</h2>
+<%= @location.chain_name %>
+<h2>ccategory_labels</h2>
+<%=@location.category_labels %>
+
+
+
+<%= link_to "Edit",edit_location_path(@location), :class => "btn btn-warning" %>
+|<%= link_to "Delete",location_path(@location),:method => :delete, 
+:data => {:confirm => "are you sure?"}, :class => "btn btn-danger" %>
+
+
+<%= link_to "New", new_location_path , :class => "btn btn-default"%>
